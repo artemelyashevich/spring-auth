@@ -7,12 +7,16 @@ import com.elyashevich.auth.repo.RoleRepo;
 import com.elyashevich.auth.repo.UserRepo;
 import com.elyashevich.auth.service.UserService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
@@ -35,6 +39,12 @@ public class UserServiceImpl implements UserService {
         }
         user.setRoles(Collections.singletonList(role));
         userRepo.save(user);
+    }
+
+    @Override
+    public User findCurrentUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return userRepo.findByEmail(authentication.getName());
     }
 
     @Override

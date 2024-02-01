@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Registration and Login System</title>
+    <link th:href="@{/css/index.css}" rel="stylesheet">
+</head>
+<body>
+<header class="header">
+    <div class="logo">
+        <a th:href="@{/index}"><h1>Logo</h1></a>
+    </div>
+    <button class="header__add" type="button">Add Book</button>
+    <div class="header__search">
+        <input type="text" placeholder="search"/>
+        <button>Search</button>
+    </div>
+    <nav>
+        <h3>Welcome, <span th:text="${user.getName()}">user</span></h3>
+        <a aria-current="page" th:href="@{/logout}">Logout</a>
+    </nav>
+</header>
+<div class="add-book">
+    <form action="" class="form create-book-form">
+        <div class="form__top">
+            <h1>Book</h1>
+            <button class="closeBtn" type="button">
+                <img src="../img/close.svg" alt="" srcset="">
+            </button>
+        </div>
+        <div class="form__content">
+            <div class="form__content-left">
+                <input type="file" placeholder="Load image">
+            </div>
+            <div class="form__content-right">
+                <label for="#1">
+                    <p>Title</p>
+                    <input id="1" type="text">
+                </label>
+                <label for="#2">
+                    <p>Author</p>
+                    <input id="2" type="text">
+                </label>
+                <label for="#3">
+                    <p>Genre</p>
+                    <input id="3" type="text">
+                </label>
+                <label for="#4">
+                    <p>Publisher</p>
+                    <input id="4" type="text">
+                </label>
+                <label for="#5">
+                    <p>Year</p>
+                    <input id="5" type="text">
+                </label>
+                <label for="#6">
+                    <p>Page count</p>
+                    <input id="6" type="text">
+                </label>
+                <button class="save">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
+<section class="header__bottom">
+    s
+</section>
+<div class="container">
+    <section>
+        <h2>
+            All genres
+        </h2>
+        <ul>
+            <li class="genre">
+                <a href="">Genre 1</a>
+            </li>
+            <li class="genre">
+                <a href="">Genre 2</a>
+            </li>
+            <li class="genre">
+                <a href="">Genre 3</a>
+            </li>
+            <li class="genre">
+                <a href="">Genre 4</a>
+            </li>
+            <li class="genre">
+                <a href="">Genre 5</a>
+            </li>
+            <li class="genre">
+                <a href="">Genre 6</a>
+            </li>
+            <li class="genre">
+                <a href="">Genre 7</a>
+            </li>
+            <li class="genre">
+                <a href="">Genre 8</a>
+            </li>
+            <li class="genre">
+                <a href="">Genre 9</a>
+            </li>
+            <li class="genre">
+                <a href="">Genre 10</a>
+            </li>
+        </ul>
+    </section>
+    <main>
+        <h2>
+            Exists: 15
+        </h2>
+        <div class="book">
+
+        </div>
+    </main>
+</div>
+<footer class="footer"></footer>
+<script th:src="@{/js/home.js}"></script>
+</body>
+</html>

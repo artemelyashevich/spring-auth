@@ -29,13 +29,15 @@ public class WebSecurityConfig {
                         authorize
                                 .requestMatchers("/register/**").permitAll()
                                 .requestMatchers("/index").permitAll()
+                                .requestMatchers("/home").authenticated()
                                 .requestMatchers("/users").hasRole("ADMIN")
+                                .requestMatchers("/css/**", "/img/*", "/js/*").permitAll()
                 )
                 .formLogin(
                         form -> form
                                 .loginPage("/login")
                                 .loginProcessingUrl("/login")
-                                .defaultSuccessUrl("/users")
+                                .defaultSuccessUrl("/home")
                                 .permitAll()
                 )
                 .logout(
