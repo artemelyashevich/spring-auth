@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+
+<head th:insert="~{blocks/head :: head(title='Admin | Genres')}"><title>Admin | Authors</title></head>
+
+<body>
+
+<div th:insert="~{blocks/header :: header}"></div>
+<div class="add-book">
+    <form role="form" th:action="@{/genre}" th:object="${genreDto}" class="form create-book-form" method="post">
+        <div class="form__top">
+            <h1>Genre</h1>
+            <button class="closeBtn" type="button">
+                <img src="../img/close.svg" alt="" srcset="">
+            </button>
+        </div>
+        <div class="form__content">
+            <div class="form__content-right">
+                <label for="#1">
+                    <p>Title</p>
+                    <input id="title" name="title" th:field="*{title}" type="text">
+                </label>
+                <button type="submit" class="save">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<div class="container">
+    <main class="admin">
+        <div th:insert="~{blocks/nav-admin :: nav(active='genre')}"></div>
+        <section>
+            <h4>Exists: <span th:text="${genres.size()}"></span></h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <th:body th:each="genre : ${genres}">
+                    <tr>
+                        <td th:text="${genre.getTitle()}">Item 1</td>
+                        <td><img src="../img/delete.svg" alt="" srcset=""></td>
+                        <td><img src="../img/edit.svg" alt="" srcset=""></td>
+                    </tr>
+                </th:body>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</div>
+
+<script th:src="@{/js/home.js}"></script>
+
+</body>
+</html>

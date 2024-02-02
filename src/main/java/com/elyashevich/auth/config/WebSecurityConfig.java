@@ -30,8 +30,19 @@ public class WebSecurityConfig {
                                 .requestMatchers("/register/**").permitAll()
                                 .requestMatchers("/index").permitAll()
                                 .requestMatchers("/home").authenticated()
-                                .requestMatchers("/users").hasRole("ADMIN")
-                                .requestMatchers("/css/**", "/img/*", "/js/*").permitAll()
+                                .requestMatchers(
+                                        "/users",
+                                        "/directory/*",
+                                        "/author/*",
+                                        "/genre",
+                                        "/publisher"
+                                ).hasRole("ADMIN")
+                                .requestMatchers(
+                                        "/css/**",
+                                        "/img/*",
+                                        "/js/*"
+                                ).permitAll()
+                                .requestMatchers("/author/*").permitAll()
                 )
                 .formLogin(
                         form -> form

@@ -31,6 +31,15 @@ public class Book extends AbstractEntity {
     @Column(name = "page_count", nullable = false)
     private Integer page_count;
 
+    @Column(name = "description")
+    private String description;
+
+    @Column(name = "pdf_path")
+    private String pdfPath;
+
+    @Column(name = "image_path")
+    private String imagePath;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "genre_id")
     @ToString.Exclude

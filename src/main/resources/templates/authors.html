@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head th:insert="~{blocks/head :: head(title='Admin | Authors')}"><title>Admin | Authors</title></head>
+<body>
+
+<body>
+<div th:insert="~{blocks/header :: header}"></div>
+<div class="add-book">
+    <form role="form" th:action="@{/author}" th:object="${authorDto}" class="form create-book-form" method="post">
+        <div class="form__top">
+            <h1>Author</h1>
+            <button class="closeBtn" type="button">
+                <img src="../img/close.svg" alt="" srcset="">
+            </button>
+        </div>
+        <div class="form__content">
+            <div class="form__content-right">
+                <label>
+                    <p>Name</p>
+                    <input id="name" name="name" th:field="*{name}" type="text">
+                </label>
+                <label>
+                    <p>Birthday</p>
+                    <input id="birthday" name="birthday" th:field="*{birthday}" type="date">
+                </label>
+                <button type="submit" class="save">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="container">
+    <main class="admin">
+        <div th:insert="~{blocks/nav-admin :: nav(active='author')}"></div>
+        <section>
+            <h4>Exists: <span th:text="${authors.size()}"></span></h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Birthday</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <th:body th:each="author : ${authors}">
+                    <tr>
+                        <td th:text="${author.getName()}">Item 1</td>
+                        <td th:text="${author.getBirthday()}">Item 2</td>
+                        <td>
+                            <form th:action="'/author/' + ${author.getName()}" th:method="delete">
+                                <button type="submit"><img src="../img/delete.svg"></button>
+                            </form>
+                        </td>
+                        <td>
+                            <button type="submit"><img src="../img/edit.svg"></button>
+                        </td>
+                    </tr>
+
+                </th:body>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</div>
+<footer class="footer"></footer>
+<script th:src="@{/js/home.js}"></script>
+</body>
+</html>

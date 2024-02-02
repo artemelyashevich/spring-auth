@@ -168,3 +168,58 @@ header, footer, .container {
   color: #fff;
   cursor: pointer;
 }
+
+.admin nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.admin nav a {
+  padding: 10px;
+  color: #000;
+}
+.admin section {
+  background-color: #fff;
+  padding: 20px;
+  width: 100%;
+}
+.admin section h4 {
+  display: flex;
+  justify-content: center;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+.admin section h4 span {
+  margin-left: 5px;
+}
+.admin section table {
+  width: 100%;
+}
+.admin section table, .admin section th, .admin section td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 0.5em;
+}
+.admin section td {
+  padding: 20px 0.5em;
+}
+.admin section th {
+  background-color: #f3f3f3;
+}
+.admin section tr:nth-child(2n) {
+  background-color: #f3f3f3;
+}
+.admin section tr button {
+  display: block;
+  margin: 0 auto;
+  background: inherit;
+  border: none;
+  cursor: pointer;
+}
+.admin section tr img {
+  width: 30px;
+}
+
+.link-active {
+  background-color: #fff;
+}

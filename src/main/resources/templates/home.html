@@ -2,16 +2,14 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
 >
-<head>
-    <meta charset="UTF-8">
-    <title>Registration and Login System</title>
-    <link th:href="@{/css/index.css}" rel="stylesheet">
-</head>
+<head th:insert="~{blocks/head :: head(title='Home')}"><title>Admin | Authors</title></head>
+
 <body>
 <header class="header">
     <div class="logo">
-        <a th:href="@{/index}"><h1>Logo</h1></a>
+        <a th:href="@{/home}"><h1>Logo</h1></a>
     </div>
+    <a th:href="@{/directory/authors}">Directory</a>
     <button class="header__add" type="button">Add Book</button>
     <div class="header__search">
         <input type="text" placeholder="search"/>
@@ -58,6 +56,10 @@
                 <label for="#6">
                     <p>Page count</p>
                     <input id="6" type="text">
+                </label>
+                <label for="#7">
+                    <p>Description</p>
+                    <textarea id="7"> </textarea>
                 </label>
                 <button class="save">Save</button>
             </div>

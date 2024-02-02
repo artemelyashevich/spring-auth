@@ -1,0 +1,16 @@
+<div th:fragment="header" xmlns:th="http://www.w3.org/1999/xhtml">
+    <header class="header">
+        <div class="logo">
+            <a th:href="@{/home}"><h1>Logo</h1></a>
+        </div>
+        <button class="header__add" type="button">Add value</button>
+        <div class="header__search">
+            <input type="text" placeholder="search">
+            <button>Search</button>
+        </div>
+        <nav>
+            <h3>Welcome, <span th:text="${user.getName()}">user</span></h3>
+            <a aria-current="page" th:href="@{/logout}">Logout</a>
+        </nav>
+    </header>
+</div>

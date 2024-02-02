@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{blocks/head :: head(title='Admin | Publishers')}"><title>Admin | Authors</title></head>
+
+<body>
+
+<div th:insert="~{blocks/header :: header}"></div>
+
+<div class="add-book">
+    <form role="form" th:action="@{/publisher}" th:object="${publisherDto}" class="form create-book-form"
+          method="post">
+        <div class="form__top">
+            <h1>Publisher</h1>
+            <button class="closeBtn" type="button">
+                <img src="../img/close.svg" alt="" srcset="">
+            </button>
+        </div>
+        <div class="form__content">
+            <div class="form__content-right">
+                <label for="#1">
+                    <p>Name</p>
+                    <input id="name" name="name" th:field="*{name}" type="text">
+                </label>
+                <button type="submit" class="save">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="container">
+    <main class="admin">
+        <div th:insert="~{blocks/nav-admin :: nav(active='publisher')}"></div>
+        <section>
+            <h4>Exists: <span th:text="${publishers.size()}"></span></h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <th:body th:each="publisher : ${publishers}">
+                    <tr>
+                        <td th:text="${publisher.getName()}">Item 1</td>
+                        <td><img src="../img/delete.svg" alt="" srcset=""></td>
+                        <td><img src="../img/edit.svg" alt="" srcset=""></td>
+                    </tr>
+                </th:body>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</div>
+
+<script th:src="@{/js/home.js}"></script>
+
+</body>
+
+</html>

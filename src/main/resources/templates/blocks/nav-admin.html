@@ -1,0 +1,13 @@
+<div th:fragment="nav-admin (active)">
+  <nav>
+    <a th:class="${active == 'author'} ? 'link-active' : null" aria-current="page" th:href="@{/directory/authors}">
+      Author
+    </a>
+    <a th:class="${active == 'genre'} ? 'link-active' : null" aria-current="page" th:href="@{/directory/genres}">
+      Genre
+    </a>
+    <a th:class="${active == 'publisher'} ? 'link-active' : null" aria-current="page" th:href="@{/directory/publishers}">
+      Publisher
+    </a>
+  </nav>
+</div>
