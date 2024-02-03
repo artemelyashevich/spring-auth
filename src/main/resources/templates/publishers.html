@@ -45,8 +45,14 @@
                 <th:body th:each="publisher : ${publishers}">
                     <tr>
                         <td th:text="${publisher.getName()}">Item 1</td>
-                        <td><img src="../img/delete.svg" alt="" srcset=""></td>
-                        <td><img src="../img/edit.svg" alt="" srcset=""></td>
+                        <td>
+                            <form th:action="'/publisher/' + ${publisher.getName()}" th:method="delete">
+                                <button type="submit"><img src="../img/delete.svg"></button>
+                            </form>
+                        </td>
+                        <td>
+                            <button type="submit"><img src="../img/edit.svg"></button>
+                        </td>
                     </tr>
                 </th:body>
                 </tbody>
