@@ -13,21 +13,20 @@
         <div class="form__top">
             <h1>Genre</h1>
             <button class="closeBtn" type="button">
-                <img src="../img/close.svg" alt="" srcset="">
+                <img src="../img/close.svg">
             </button>
         </div>
         <div class="form__content">
             <div class="form__content-right">
-                <label for="#1">
+                <label>
                     <p>Title</p>
-                    <input id="title" name="title" th:field="*{title}" type="text">
+                    <input id="name" name="name" th:field="*{name}" type="text">
                 </label>
                 <button type="submit" class="save">Save</button>
             </div>
         </div>
     </form>
 </div>
-
 
 <div class="container">
     <main class="admin">
@@ -46,7 +45,11 @@
                 <th:body th:each="genre : ${genres}">
                     <tr>
                         <td th:text="${genre.getTitle()}">Item 1</td>
-                        <td><img src="../img/delete.svg" alt="" srcset=""></td>
+                        <td>
+                            <form th:action="'/genre/' + ${genre.getTitle()}" th:method="delete">
+                                <button type="submit"><img src="../img/delete.svg"></button>
+                            </form>
+                        </td>
                         <td><img src="../img/edit.svg" alt="" srcset=""></td>
                     </tr>
                 </th:body>

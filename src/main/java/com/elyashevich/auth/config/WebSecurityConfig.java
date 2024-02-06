@@ -34,15 +34,14 @@ public class WebSecurityConfig {
                                         "/users",
                                         "/directory/*",
                                         "/author/*",
-                                        "/genre",
-                                        "/publisher"
+                                        "/genre/*",
+                                        "/publisher/*"
                                 ).hasRole("ADMIN")
                                 .requestMatchers(
                                         "/css/**",
                                         "/img/*",
                                         "/js/*"
                                 ).permitAll()
-                                .requestMatchers("/author/*").permitAll()
                 )
                 .formLogin(
                         form -> form

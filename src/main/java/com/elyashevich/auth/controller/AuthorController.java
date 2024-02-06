@@ -18,8 +18,8 @@ public class AuthorController {
     private final AuthorService authorService;
 
     @PostMapping
-    public String saveAuthor(final @Valid @ModelAttribute("authorDto") AuthorDto author) {
-        authorService.create(author);
+    public String saveAuthor(final @Valid @ModelAttribute("authorDto") AuthorDto authorDto) {
+        authorService.create(authorDto);
         return "redirect:/directory/authors";
     }
 

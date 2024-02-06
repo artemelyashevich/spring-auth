@@ -10,4 +10,6 @@ public interface PublisherService {
     void create(PublisherDto publisherDto);
 
     List<Publisher> findAll();
+
+    Publisher findById(Long id);
 }

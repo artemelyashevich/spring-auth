@@ -19,9 +19,19 @@ public class GenreServiceImpl implements GenreService {
     public void create(GenreDto genreDto) {
         final Genre genre = Genre
                 .builder()
-                .title(genreDto.getTitle())
+                .title(genreDto.getName())
                 .build();
         genreRepo.save(genre);
+    }
+
+    @Override
+    public Genre findById(Long id) {
+        return genreRepo.findById(id).orElseThrow();
+    }
+
+    @Override
+    public Genre findByTitle(String title) {
+        return genreRepo.findByTitle(title);
     }
 
     @Override
@@ -29,5 +39,9 @@ public class GenreServiceImpl implements GenreService {
         return genreRepo.findAll();
     }
 
-
+    @Override
+    public void delete(String title) {
+        final Genre genre = genreRepo.findByTitle(title);
+        genreRepo.delete(genre);
+    }
 }

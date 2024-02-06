@@ -28,4 +28,9 @@ public class PublisherServiceImpl implements PublisherService {
     public List<Publisher> findAll() {
         return publisherRepo.findAll();
     }
+
+    @Override
+    public Publisher findById(Long id) {
+        return publisherRepo.findById(id).orElseThrow();
+    }
 }

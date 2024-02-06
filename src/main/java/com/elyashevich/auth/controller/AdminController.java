@@ -33,11 +33,11 @@ public class AdminController {
     @GetMapping("/authors")
     public String authorsPage(final Model model) {
         final AuthorDto authorDto = new AuthorDto();
-        final List<Author> authors = authorService.findAll();
         final User user = userService.findCurrentUser();
-        model.addAttribute("authorDto", authorDto);
+        final List<Author> authors = authorService.findAll();
         model.addAttribute("authors", authors);
         model.addAttribute("user", user);
+        model.addAttribute("authorDto", authorDto);
         return "authors";
     }
 

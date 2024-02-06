@@ -31,6 +31,11 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
+    public Author findById(Long id) {
+        return authorRepo.findById(id).orElseThrow();
+    }
+
+    @Override
     public void delete(String name) {
         final Author author = authorRepo.findByName(name);
         authorRepo.delete(author);

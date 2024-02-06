@@ -9,5 +9,11 @@ public interface GenreService {
 
     void create(GenreDto genreDto);
 
+    Genre findById(Long id);
+
+    Genre findByTitle(String title);
+
     List<Genre> findAll();
+
+    void delete(String title);
 }
